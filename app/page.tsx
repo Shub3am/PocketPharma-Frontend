@@ -185,28 +185,26 @@ export default function GenericMedicineFinder() {
               </div>
             ) : null}
 
-            {genericMedicine && displayGeneric ? (
+            {genericMedicine && !Array.isArray(displayGeneric) ? (
               <div className="mt-4 space-y-4 bg-gray-100 p-4 rounded-lg">
                 <h3 className="text-xl font-semibold">
                   Generic Alternative Found!
                 </h3>
                 <div className="block items-center ">
-                  {Array.isArray(displayGeneric)
-                    ? null
-                    : genericMedicine[displayGeneric].map((item) => {
-                        return (
-                          <div className="flex" key={JSON.stringify(item)}>
-                            {Object.keys(item).map((i) => {
-                              return (
-                                <p className="mr-1" key={i}>
-                                  {i} is {item[i]}
-                                  {isNaN(item[i]) ? "," : "₹"}
-                                </p>
-                              );
-                            })}
-                          </div>
-                        );
-                      })}
+                  {genericMedicine[displayGeneric].map((item) => {
+                    return (
+                      <div className="flex" key={JSON.stringify(item)}>
+                        {Object.keys(item).map((i) => {
+                          return (
+                            <p className="mr-1" key={i}>
+                              {i} is {item[i]}
+                              {isNaN(item[i]) ? "," : "₹"}
+                            </p>
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             ) : null}
