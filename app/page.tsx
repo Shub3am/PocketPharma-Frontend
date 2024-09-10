@@ -6,15 +6,9 @@ export default function GenericMedicineFinder() {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [mime, setMime] = useState("");
   const [displayGeneric, setGeneric] = useState([]);
-  const [genericMedicine, setGenericMedicine] = useState<{
-    name: string;
-    image: string;
-    link: string;
-  } | null>(null);
+  const [genericMedicine, setGenericMedicine] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState("finder");
-  const [demoStep, setDemoStep] = useState(0);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -28,13 +22,12 @@ export default function GenericMedicineFinder() {
       console.log(file);
     }
   };
-
+  //shubham backend url change kardena
   const findGenericMedicine = async () => {
     setIsLoading(true);
     setError(null);
     try {
-      // This is a mock API call. Replace with your actual API endpoint.
-      const response = await fetch("http://localhost:8787", {
+      const response = await fetch(process.env.NEXT_PUBLIC_backend, {
         method: "POST",
         body: JSON.stringify({
           image: uploadedImage,
@@ -63,7 +56,7 @@ export default function GenericMedicineFinder() {
       setIsLoading(false);
     }
   };
-
+  // Eklavya use this to develop frontend
   const demoMedicine = {
     brandName: "PainAway Plus",
     brandImage: "/placeholder.svg?height=200&width=200",
@@ -73,6 +66,7 @@ export default function GenericMedicineFinder() {
     genericPrice: 12.99,
     genericLink: "https://example.com/generic-ibuprofen",
   };
+  // Eklavya use this to develop frontend
 
   const runDemoStep = () => {
     setDemoStep((prev) => (prev < 3 ? prev + 1 : 0));
