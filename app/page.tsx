@@ -73,10 +73,10 @@ export default function GenericMedicineFinder() {
       <div className="bg-white shadow-md rounded-lg overflow-hidden mb-8">
         <div className="bg-blue-600 text-white p-6">
           <h1 className="text-3xl font-bold">
-            PocketPharma: Generic Medicine Finder
+            PocketPharma AI: Generic Medicine Finder
           </h1>
           <p className="text-lg">
-            Find affordable alternatives to expensive medications
+            Find affordable alternatives to expensive medications using AI
           </p>
         </div>
         <div className="p-6">
