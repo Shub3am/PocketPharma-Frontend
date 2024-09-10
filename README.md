@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project name: PocketPharma: Your Pocket-Friendly Pharmacy Assistant
 
-## Getting Started
+## Built By team alphatauri
+## Project for Hackathon : Live The Code 3.0
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Team AlphaTauri
+Shubham: GitHub Profile
+Eklavya: GitHub Profile
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Overview
+PocketPharma is an innovative web application developed for the Live The Code 3.0 hackathon. It aims to revolutionize how people access affordable medication by leveraging AI to identify medicines from photos and suggest cost-effective generic alternatives.
+Mission
+Our mission is to make healthcare more accessible and affordable for everyone by providing an easy-to-use tool that helps users find generic alternatives to brand-name medications.
+Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Image-based Medicine Identification: Upload a photo of your medicine for instant recognition.
+AI-powered Analysis: Utilizes cutting-edge AI models to analyze and identify medications.
+Generic Alternative Suggestions: Provides a list of generic alternatives to brand-name medicines.
+Price Comparison: Offers side-by-side price comparisons between brand-name and generic options.
+User-friendly Interface: Intuitive design for easy navigation and use.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+How It Works
 
-## Learn More
+Upload: Users upload a photo of their medicine through the web interface.
+Analyze: Our AI models process the image to identify the medication.
+Search: The system searches for generic alternatives to the identified medicine.
+Compare: Users are presented with a list of generic options, including price comparisons.
+Choose: Armed with this information, users can make informed decisions about their medication purchases.
 
-To learn more about Next.js, take a look at the following resources:
+Technical Stack
+Frontend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Next.js (React framework)
+TypeScript
+Tailwind CSS for styling
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Backend
 
-## Deploy on Vercel
+Hono (lightweight web framework for edge computing)
+Groq SDK for AI text generation
+Google's Generative AI (Gemini model)
+LLaVA (Large Language and Vision Assistant) model
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Future Enhancements
+
+Integration with official pharmaceutical databases
+Mobile app development
+Personalized medicine reminders and tracking
+
+Team AlphaTauri
+
+Shubham: [Github](http://github.com/shub3am)
+Eklavya: GitHub Profile ( To be added)
+
+Hackathon: Live The Code 3.0
+PocketPharma was developed as part of Live The Code 3.0, a hackathon focused on innovative solutions in healthcare technology. Our team aimed to address the critical issue of medication affordability and accessibility through this project.
+Conclusion
+PocketPharma demonstrates the potential of AI in healthcare, offering a user-friendly solution to the challenge of finding affordable medications. By participating in Live The Code 3.0, Team AlphaTauri has taken a significant step towards making healthcare more accessible to all.
