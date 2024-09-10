@@ -27,14 +27,17 @@ export default function GenericMedicineFinder() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_backend, {
-        method: "POST",
-        body: JSON.stringify({
-          image: uploadedImage,
-          mime: mime,
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await fetch(
+        "https://pocketpharma.shubhamvishwakarma0604.workers.dev",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            image: uploadedImage,
+            mime: mime,
+          }),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       const data = await response.json();
 
       console.log(data);
