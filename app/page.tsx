@@ -170,7 +170,7 @@ export default function GenericMedicineFinder() {
               <p className="text-red-500 bg-red-100 p-3 rounded-lg">{error}</p>
             )}
 
-            {nonGeneric && (
+            {genericMedicine && nonGeneric && (
               <div className="mt-4 space-y-4 bg-gray-100 p-4 rounded-lg">
                 <h3 className="text-xl font-semibold">Original Medicine</h3>
                 <div className="block items-center ">
@@ -185,7 +185,7 @@ export default function GenericMedicineFinder() {
               </div>
             )}
 
-            {genericMedicine && (
+            {genericMedicine && displayGeneric && (
               <div className="mt-4 space-y-4 bg-gray-100 p-4 rounded-lg">
                 <h3 className="text-xl font-semibold">
                   Generic Alternative Found!
