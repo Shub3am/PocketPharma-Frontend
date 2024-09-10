@@ -6,6 +6,7 @@ export default function GenericMedicineFinder() {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [mime, setMime] = useState("");
   const [displayGeneric, setGeneric] = useState([]);
+  const [nonGeneric, setNonGeneric] = useState({});
   const [genericMedicine, setGenericMedicine] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -42,11 +43,15 @@ export default function GenericMedicineFinder() {
 
       console.log(data);
       if (response.ok && !data?.message) {
+        let nonGeneric = {};
         Object.keys(JSON.parse(data)).forEach((item) => {
           if (item.toLowerCase().includes("generic")) {
             setGeneric(item);
+          } else {
+            nonGeneric[item] = JSON.parse(data)[item];
           }
         });
+        setNonGeneric(nonGeneric);
         setGenericMedicine(JSON.parse(data));
       } else {
         throw new Error(data.message || "Failed to find generic medicine");
@@ -165,19 +170,35 @@ export default function GenericMedicineFinder() {
               <p className="text-red-500 bg-red-100 p-3 rounded-lg">{error}</p>
             )}
 
+            {nonGeneric && (
+              <div className="mt-4 space-y-4 bg-gray-100 p-4 rounded-lg">
+                <h3 className="text-xl font-semibold">Original Medicine</h3>
+                <div className="block items-center ">
+                  {Object.keys(nonGeneric).map((item) => {
+                    return (
+                      <p key={item}>
+                        {item} is {nonGeneric[item]}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             {genericMedicine && (
               <div className="mt-4 space-y-4 bg-gray-100 p-4 rounded-lg">
                 <h3 className="text-xl font-semibold">
                   Generic Alternative Found!
                 </h3>
-                <div className="block items-center space-x-4">
+                <div className="block items-center ">
                   {genericMedicine[displayGeneric].map((item) => {
                     return (
                       <div className="flex" key={JSON.stringify(item)}>
                         {Object.keys(item).map((i) => {
                           return (
-                            <p className="mr-1">
-                              {i} is {item[i]} |
+                            <p className="mr-1" key={i}>
+                              {i} is {item[i]}
+                              {isNaN(item[i]) ? "," : "₹"}
                             </p>
                           );
                         })}
