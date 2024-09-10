@@ -170,44 +170,46 @@ export default function GenericMedicineFinder() {
               <p className="text-red-500 bg-red-100 p-3 rounded-lg">{error}</p>
             )}
 
-            {Object.keys(nonGeneric).length && (
+            {Object.keys(nonGeneric).length ? (
               <div className="mt-4 space-y-4 bg-gray-100 p-4 rounded-lg">
                 <h3 className="text-xl font-semibold">Original Medicine</h3>
                 <div className="block items-center ">
                   {Object.keys(nonGeneric).map((item) => {
                     return (
                       <p key={item}>
-                        {item} is {nonGeneric[item]}
+                        {item} is {String(nonGeneric[item])}
                       </p>
                     );
                   })}
                 </div>
               </div>
-            )}
+            ) : null}
 
-            {genericMedicine && displayGeneric && (
+            {genericMedicine && displayGeneric ? (
               <div className="mt-4 space-y-4 bg-gray-100 p-4 rounded-lg">
                 <h3 className="text-xl font-semibold">
                   Generic Alternative Found!
                 </h3>
                 <div className="block items-center ">
-                  {genericMedicine[displayGeneric].map((item) => {
-                    return (
-                      <div className="flex" key={JSON.stringify(item)}>
-                        {Object.keys(item).map((i) => {
-                          return (
-                            <p className="mr-1" key={i}>
-                              {i} is {item[i]}
-                              {isNaN(item[i]) ? "," : "₹"}
-                            </p>
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
+                  {Array.isArray(displayGeneric)
+                    ? null
+                    : genericMedicine[displayGeneric].map((item) => {
+                        return (
+                          <div className="flex" key={JSON.stringify(item)}>
+                            {Object.keys(item).map((i) => {
+                              return (
+                                <p className="mr-1" key={i}>
+                                  {i} is {item[i]}
+                                  {isNaN(item[i]) ? "," : "₹"}
+                                </p>
+                              );
+                            })}
+                          </div>
+                        );
+                      })}
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
         <div className="bg-gray-100 p-4">
