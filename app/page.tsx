@@ -28,17 +28,14 @@ export default function GenericMedicineFinder() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(
-        "https://pocketpharma.shubhamvishwakarma0604.workers.dev/",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            image: uploadedImage,
-            mime: mime,
-          }),
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const response = await fetch("http://localhost:8787", {
+        method: "POST",
+        body: JSON.stringify({
+          image: uploadedImage,
+          mime: mime,
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
       const data = await response.json();
 
       console.log(data);
@@ -185,28 +182,26 @@ export default function GenericMedicineFinder() {
               </div>
             ) : null}
 
-            {genericMedicine && !Array.isArray(displayGeneric) ? (
+            {genericMedicine && Array.isArray(displayGeneric) ? (
               <div className="mt-4 space-y-4 bg-gray-100 p-4 rounded-lg">
                 <h3 className="text-xl font-semibold">
                   Generic Alternative Found!
                 </h3>
                 <div className="block items-center ">
-                  {Array.isArray(displayGeneric)
-                    ? null
-                    : genericMedicine[displayGeneric].map((item) => {
-                        return (
-                          <div className="flex" key={JSON.stringify(item)}>
-                            {Object.keys(item).map((i) => {
-                              return (
-                                <p className="mr-1" key={i}>
-                                  {i} is {item[i]}
-                                  {isNaN(item[i]) ? "," : "₹"}
-                                </p>
-                              );
-                            })}
-                          </div>
-                        );
-                      })}
+                  {genericMedicine[displayGeneric].map((item) => {
+                    return (
+                      <div className="flex" key={JSON.stringify(item)}>
+                        {Object.keys(item).map((i) => {
+                          return (
+                            <p className="mr-1" key={i}>
+                              {i} is {item[i]}
+                              {isNaN(item[i]) ? "," : "₹"}
+                            </p>
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             ) : null}
