@@ -29,7 +29,7 @@ export default function GenericMedicineFinder() {
     setError(null);
     try {
       const response = await fetch(
-        "https://pocketpharma.shubhamvishwakarma0604.workers.dev/",
+        "https://pocketpharma-backend.shubhamvishwakarma0604.workers.dev/",
         {
           method: "POST",
           body: JSON.stringify({
