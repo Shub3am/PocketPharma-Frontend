@@ -177,7 +177,8 @@ export default function GenericMedicineFinder() {
                   {Object.keys(nonGeneric).map((item) => {
                     return (
                       <p key={item}>
-                        {item.replace("_", " ")} is {String(nonGeneric[item])}
+                        {item.replace("_", " ")} is {String(nonGeneric[item])}{" "}
+                        {isNaN(nonGeneric[item]) ? "," : "₹"}
                       </p>
                     );
                   })}
