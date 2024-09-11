@@ -29,7 +29,7 @@ export default function GenericMedicineFinder() {
     setError(null);
     try {
       const response = await fetch(
-        "https://pocketpharma.shubhamvishwakarma0604.workers.dev",
+        "https://pocketpharma.shubhamvishwakarma0604.workers.dev/",
         {
           method: "POST",
           body: JSON.stringify({
@@ -191,20 +191,22 @@ export default function GenericMedicineFinder() {
                   Generic Alternative Found!
                 </h3>
                 <div className="block items-center ">
-                  {genericMedicine[displayGeneric].map((item) => {
-                    return (
-                      <div className="flex" key={JSON.stringify(item)}>
-                        {Object.keys(item).map((i) => {
-                          return (
-                            <p className="mr-1" key={i}>
-                              {i} is {item[i]}
-                              {isNaN(item[i]) ? "," : "₹"}
-                            </p>
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
+                  {Array.isArray(displayGeneric)
+                    ? null
+                    : genericMedicine[displayGeneric].map((item) => {
+                        return (
+                          <div className="flex" key={JSON.stringify(item)}>
+                            {Object.keys(item).map((i) => {
+                              return (
+                                <p className="mr-1" key={i}>
+                                  {i} is {item[i]}
+                                  {isNaN(item[i]) ? "," : "₹"}
+                                </p>
+                              );
+                            })}
+                          </div>
+                        );
+                      })}
                 </div>
               </div>
             ) : null}
