@@ -216,9 +216,7 @@ export default function GenericMedicineFinder() {
             <p className="text-sm text-gray-600">
               This project has been made by AlphaTauri
             </p>
-            <p className="text-sm font-medium">
-              Team Members: Shubham and Eklavya
-            </p>
+            <p className="text-sm font-medium">Team Members: Shubham</p>
             <p className="text-sm text-gray-600">For Live The Code 3.0</p>
           </div>
         </div>
